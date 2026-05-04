@@ -1,0 +1,9 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // allow public access for everything since the user requested removal of auth and account
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}
